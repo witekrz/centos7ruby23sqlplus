@@ -8,11 +8,12 @@ RUN yum -y update
 RUN yum -y install gcc-c++ patch readline readline-devel zlib zlib-devel \
    libyaml-devel libffi-devel openssl-devel make \
    bzip2 autoconf automake libtool bison iconv-devel sqlite-devel \
-   which libaio unzip nc wget \
+   which libaio unzip nc wget java-11-openjdk \
    && yum -y reinstall glibc-common \
    && yum -y install git openssh-server ca-certificates \
    && update-ca-trust
 
+RUN alternatives --set java java-11-openjdk.x86_64
 
 ADD tmp /tmp
 RUN chmod +x /tmp/sqlplus_12_2.tar.gz
