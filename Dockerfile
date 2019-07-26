@@ -37,6 +37,7 @@ RUN /bin/bash -l -c "gem install data_objects -v 0.10.17"
 RUN /bin/bash -l -c "gem install mdb -v 0.4.1"
 RUN /bin/bash -l -c "gem install activerecord-oracle_enhanced-adapter -v 1.6.7"
 RUN /bin/bash -l -c "gem install rake -v 11.3.0"
+RUN /bin/bash -l -c "gem install fileutils -v 0.7.2"
 
 RUN yum clean all \
    && rm -rf /var/cache/yum
