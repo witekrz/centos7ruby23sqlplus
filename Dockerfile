@@ -15,7 +15,7 @@ RUN yum -y install gcc-c++ patch readline readline-devel zlib zlib-devel \
    && update-ca-trust
 
 RUN yum -y install epel-release
-RUN yum -y install curl cabextract xorg-x11-font-utils fontconfig
+RUN yum -y install curl cabextract xorg-x11-font-utils fontconfig GraphicsMagick
 RUN rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 
 RUN alternatives --set java java-11-openjdk.x86_64
