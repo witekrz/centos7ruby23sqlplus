@@ -9,9 +9,14 @@ RUN yum -y install gcc-c++ patch readline readline-devel zlib zlib-devel \
    libyaml-devel libffi-devel openssl-devel make \
    bzip2 autoconf automake libtool bison iconv-devel sqlite-devel \
    which libaio unzip nc wget java-11-openjdk \
+   libreoffice-base libreoffice-calc libreoffice-writer \
    && yum -y reinstall glibc-common \
    && yum -y install git openssh-server ca-certificates \
    && update-ca-trust
+
+RUN yum -y install epel-release
+RUN yum -y install curl cabextract xorg-x11-font-utils fontconfig
+RUN rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
 
 RUN alternatives --set java java-11-openjdk.x86_64
 
@@ -37,7 +42,6 @@ RUN /bin/bash -l -c "gem install data_objects -v 0.10.17"
 RUN /bin/bash -l -c "gem install mdb -v 0.4.1"
 RUN /bin/bash -l -c "gem install activerecord-oracle_enhanced-adapter -v 1.6.7"
 RUN /bin/bash -l -c "gem install rake -v 11.3.0"
-RUN /bin/bash -l -c "gem install fileutils -v 0.7.2"
 
 RUN yum clean all \
    && rm -rf /var/cache/yum
